@@ -1,5 +1,5 @@
 // file = Html5QrcodePlugin.jsx
-import { Html5QrcodeScanner, QrcodeErrorCallback, QrcodeSuccessCallback } from 'html5-qrcode';
+import { Html5QrcodeScanner, Html5QrcodeScanType, QrcodeErrorCallback, QrcodeSuccessCallback } from 'html5-qrcode';
 import { Html5QrcodeScannerConfig } from 'html5-qrcode/esm/html5-qrcode-scanner';
 import { useEffect } from 'react';
 
@@ -21,6 +21,8 @@ const createConfig = (props: props) => {
     config.fps = props.fps;
     config.qrbox = props.qrbox;
     config.disableFlip = props.disableFlip;
+    config.rememberLastUsedCamera = true;
+    config.supportedScanTypes = [Html5QrcodeScanType.SCAN_TYPE_CAMERA]
     return config;
 };
 
