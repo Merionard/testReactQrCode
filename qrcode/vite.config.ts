@@ -4,12 +4,11 @@ import { VitePWA } from "vite-plugin-pwa";
 
 const manifestForPlugIn = {
   registerType: 'prompt',
-  includeAssests: ['favicon.ico', "apple-touc-icon.png", "masked-icon.svg"],
   manifest: {
-    name: "React-vite-app",
-    short_name: "react-vite-app",
-    description: "I am a simple vite app",
-    "icons": [
+    name: "testqrcode",
+    short_name: "testqrcode",
+    description: "test scan qrcode",
+    icons: [
       {
         "src": "windows11/SmallTile.scale-100.png",
         "sizes": "71x71"
