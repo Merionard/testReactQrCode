@@ -12,7 +12,7 @@ type props = {
     disableFlip: boolean;
     onNewScanResult: (decodedText: any, decodedResult: any) => void
     verbose: boolean;
-    qrCodeSuccessCallback?: QrcodeSuccessCallback
+    qrCodeSuccessCallback: QrcodeSuccessCallback
     qrCodeErrorCallback?: QrcodeErrorCallback
 
 }

@@ -8,13 +8,19 @@ const App = () => {
     console.log(decodedText)
   };
 
+  function onScanSuccess(decodedText: any, decodedResult: any) {
+    // Handle the scanned code as you like, for example:
+    console.log(`Code matched = ${decodedText}`, decodedResult);
+    alert(decodedText)
+  }
+
   return (
     <div className="App">
       <Html5QrcodePlugin
         fps={10}
         qrbox={250}
         disableFlip={false}
-        qrCodeSuccessCallback={onNewScanResult}
+        qrCodeSuccessCallback={onScanSuccess}
         verbose={true}
         onNewScanResult={onNewScanResult}
       />
