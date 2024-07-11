@@ -4,7 +4,8 @@ import Html5QrcodePlugin from './qecodePlugin';
 const App = () => {
 
   const onNewScanResult = (decodedText: any, decodedResult: any) => {
-    // handle decoded results here
+    console.log(decodedResult)
+    console.log(decodedText)
   };
 
   return (
@@ -14,6 +15,8 @@ const App = () => {
         qrbox={250}
         disableFlip={false}
         qrCodeSuccessCallback={onNewScanResult}
+        verbose={true}
+        onNewScanResult={onNewScanResult}
       />
     </div>
   );

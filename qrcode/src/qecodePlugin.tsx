@@ -1,28 +1,30 @@
 // file = Html5QrcodePlugin.jsx
-import { Html5QrcodeScanner } from 'html5-qrcode';
+import { Html5QrcodeScanner, QrcodeErrorCallback, QrcodeSuccessCallback } from 'html5-qrcode';
+import { Html5QrcodeScannerConfig } from 'html5-qrcode/esm/html5-qrcode-scanner';
 import { useEffect } from 'react';
 
 const qrcodeRegionId = "html5qr-code-full-region";
 
 // Creates the configuration object for Html5QrcodeScanner.
-const createConfig = (props) => {
-    let config = {};
-    if (props.fps) {
-        config.fps = props.fps;
-    }
-    if (props.qrbox) {
-        config.qrbox = props.qrbox;
-    }
-    if (props.aspectRatio) {
-        config.aspectRatio = props.aspectRatio;
-    }
-    if (props.disableFlip !== undefined) {
-        config.disableFlip = props.disableFlip;
-    }
+type props = {
+    fps: number;
+    qrbox: number
+    disableFlip: boolean;
+    onNewScanResult: (decodedText: any, decodedResult: any) => void
+    verbose: boolean;
+    qrCodeSuccessCallback?: QrcodeSuccessCallback
+    qrCodeErrorCallback?: QrcodeErrorCallback
+
+}
+const createConfig = (props: props) => {
+    let config: Html5QrcodeScannerConfig = { fps: 0 };
+    config.fps = props.fps;
+    config.qrbox = props.qrbox;
+    config.disableFlip = props.disableFlip;
     return config;
 };
 
-const Html5QrcodePlugin = (props) => {
+const Html5QrcodePlugin = (props: props) => {
 
     useEffect(() => {
         // when component mounts
